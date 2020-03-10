@@ -26,5 +26,10 @@ pipeline {
                 psLibrary()
             }
         }
+        stage('Post-Build') {
+            steps {
+                postBuild()
+            }
+        }
     }
 }
