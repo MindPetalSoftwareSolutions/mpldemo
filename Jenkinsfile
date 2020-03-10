@@ -18,7 +18,9 @@ pipeline {
         }
         stage('Powershell') {
             steps {
-                powershell returnStatus: true, script: '.\\yolo.ps1'
+                powershell(
+                    script: '.\\yolo.ps1'
+                )
             }
         }
     }
