@@ -26,9 +26,12 @@ pipeline {
                 psLibrary()
             }
         }
-        stage('Package Transfer') {
+        stage('Orch Auth') {
             steps{
-                packageTransfer()
+                withCredentials([usernamePassword(credentialsId: 'orchestrator-authentication',
+                    usernameVariable: 'ORCH_USER',
+                    passwordVariable: 'ORCH_KEY')])
+                orchAuth()
             }
         }
         stage('Post-Build') {
