@@ -6,8 +6,8 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 gitCheckout(
-                    branch: "master"
-                    url: https://github.com/VerticalApps-DevOps/mpldemo.git
+                    branch: "master",
+                    url: 'https://github.com/VerticalApps-DevOps/mpldemo.git'
                 )
             }
         }
