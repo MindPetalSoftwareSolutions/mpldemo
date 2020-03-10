@@ -32,7 +32,7 @@ pipeline {
                     usernameVariable: '${ORCH_USER}',
                     passwordVariable: '${ORCH_KEY}')])
                     {
-                        orchAuth(String '$ORCH_USER', String '$ORCH_KEY')
+                        orchAuth('${ORCH_USER}', '{$ORCH_KEY}')
                     }
             }
         }
