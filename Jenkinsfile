@@ -11,6 +11,11 @@ pipeline {
                 )
             }
         }
+        stage('demo') {
+            steps {
+                sayHello()
+            }
+        }
 
     }
 }
