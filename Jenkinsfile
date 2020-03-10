@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Powershell') {
             steps {
-                powershell returnStatus: true, script: '.\\yolo.ps1'
+                psLibrary.powershellScriptCall()
             }
         }
     }
