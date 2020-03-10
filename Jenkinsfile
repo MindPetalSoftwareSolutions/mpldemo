@@ -16,6 +16,10 @@ pipeline {
                 sayHello()
             }
         }
-
+        stage('Powershell') {
+            steps {
+                powershell returnStatus: true, script: '.\\yolo.ps1'
+            }
+        }
     }
 }
