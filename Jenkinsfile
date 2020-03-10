@@ -29,9 +29,9 @@ pipeline {
         stage('Orch Auth') {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'orchestrator-authentication',
-                    usernameVariable: 'ORCH_USER',
-                    passwordVariable: 'ORCH_KEY')])
-                orchAuth('ORCH_USER', 'ORCH_PASS')
+                    usernameVariable: '${ORCH_USER}',
+                    passwordVariable: '${ORCH_KEY}')])
+                orchAuth('usernameVariable', 'passwordVariable')
             }
         }
         stage('Post-Build') {
