@@ -11,10 +11,9 @@ pipeline {
                 )
             }
         }
-        stage('demo') {
-            steps {
-                sayHello()
-            }
+        stage('Demo') {
+            echo 'Hello World'
+            sayHello
         }
 
     }
