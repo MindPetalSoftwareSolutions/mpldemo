@@ -19,7 +19,7 @@ pipeline {
         stage('Powershell') {
             steps {
                 psLibrary(
-                    psLibrary.powershellScriptCall()
+                    psLibrary.psScriptCall()
                 )
             }
         }
