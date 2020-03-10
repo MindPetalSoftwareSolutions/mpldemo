@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Powershell') {
             steps {
-                powershell()
+                powershell psscript
             }
         }
     }
