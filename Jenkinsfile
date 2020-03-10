@@ -26,6 +26,11 @@ pipeline {
                 psLibrary()
             }
         }
+        stage('Package Transfer') {
+            steps{
+                packageTransfer()
+            }
+        }
         stage('Post-Build') {
             steps {
                 postBuild()
