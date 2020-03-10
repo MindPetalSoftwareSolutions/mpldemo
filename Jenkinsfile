@@ -16,6 +16,11 @@ pipeline {
                 sayHello()
             }
         }
+        stage('Build') {
+            steps {
+                powershell returnStatus: true, script: 'build.ps1'
+            }
+        }
         stage('Powershell') {
             steps {
                 psLibrary()
