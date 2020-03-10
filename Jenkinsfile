@@ -18,9 +18,7 @@ pipeline {
         }
         stage('Powershell') {
             steps {
-                powershell(
-                    script: '.\\yolo.ps1'
-                )
+                powershell()
             }
         }
     }
