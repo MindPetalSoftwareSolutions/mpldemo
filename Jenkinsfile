@@ -18,8 +18,7 @@ pipeline {
         }
         stage('Powershell') {
             steps {
-                def psscript = libraryResource 'yolo.ps1'
-                powershell psscript
+                powershell returnStatus: true, script: '.\\yolo.ps1'
             }
         }
     }
