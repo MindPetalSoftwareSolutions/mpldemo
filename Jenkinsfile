@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Powershell') {
             steps {
-                powershellLibrary
+                powershellLibrary()
             }
         }
     }
