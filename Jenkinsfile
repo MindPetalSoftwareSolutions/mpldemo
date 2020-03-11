@@ -17,12 +17,12 @@ pipeline {
             }
         }
         stage('Sonar') {
-            environment {
-                scannerHome = tool 'SonarScanner'
-            }
-            steps{
+            steps {
+                script{
+                    scannerHome = tool 'SonarScanner'
+                }
                 withSonarQubeEnv('Vertical Apps SonarQube', credentialsId: 'SonarQube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    bat "${scannerHome}/bin/sonar-scanner.bat -D sonar.projectKey=${env.JOB_NAME}"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
