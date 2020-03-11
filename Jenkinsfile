@@ -21,19 +21,12 @@ pipeline {
                 scannerHome = tool 'SonarScanner'
             }
             steps{
-                withSonarQubeEnv('sonarqube') {
+                withSonarQubeEnv('Vertical Apps SonarQube', credentialsId: 'SonarQube') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
-            }
-        }
-        stage("Quality Gate") {
-            steps {
-              timeout(time: 1, unit: 'HOURS') {
-                waitForQualityGate abortPipeline: true
-              }
             }
         }
         stage('Build') {
