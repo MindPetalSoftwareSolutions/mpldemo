@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Sonar') {
             steps{
-                withSonarQubeEnv(credentialsId: 'SonarQube')
+                withSonarQubeEnv('Vertical Apps SonarQube', credentialsId: 'SonarQube')
             }
         }
         stage("Quality Gate") {
