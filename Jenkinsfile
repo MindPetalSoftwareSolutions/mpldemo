@@ -18,10 +18,10 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                script{
+                script {
                     scannerHome = tool 'SonarScanner'
                 }
-                withSonarQubeEnv('Vertical Apps SonarQube', credentialsId: 'SonarQube') {
+                withSonarQubeEnv('Vertical Apps SonarQube') {
                     bat "${scannerHome}/bin/sonar-scanner.bat -D sonar.projectKey=${env.JOB_NAME}"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
