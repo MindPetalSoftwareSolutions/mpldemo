@@ -1,4 +1,4 @@
-@Library('jenkins-shared-library@master') _
+@Library('jenkins-shared-library@Justin-dev') _
 
 pipeline {
     agent any
@@ -18,15 +18,7 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                script {
-                    scannerHome = tool 'SonarScanner'
-                }
-                withSonarQubeEnv('Vertical Apps SonarQube') {
-                    bat "\"${scannerHome}\\bin\\sonar-scanner.bat\" -D sonar.projectKey=${env.JOB_NAME}"
-                }
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
+                sonarQubeScan()
             }
         }
         stage('Build') {
