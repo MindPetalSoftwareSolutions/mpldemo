@@ -1,4 +1,4 @@
-@Library('jenkins-shared-library@master') _
+@Library('jenkins-shared-library@Justin-dev') _
 
 pipeline {
     agent any
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                powershell returnStatus: true, script: '.\\build.ps1'
+                pack()
             }
         }
         stage('Powershell') {
