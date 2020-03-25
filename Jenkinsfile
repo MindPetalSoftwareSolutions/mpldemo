@@ -11,11 +11,6 @@ pipeline {
                 )
             }
         }
-        stage('Orch Publish') {
-            steps {
-               orchPublish() 
-            }
-        }
         stage('Demo') {
             steps {
                 sayHello()
@@ -29,6 +24,11 @@ pipeline {
         stage('Build') {
             steps {
                 pack()
+            }
+        }
+        stage('Orch Publish') {
+            steps {
+               orchPublish() 
             }
         }
         stage('Powershell') {
