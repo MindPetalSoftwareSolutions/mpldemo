@@ -2,9 +2,6 @@
 
 pipeline {
     agent any
-    options {
-        sendSplunkConsoleLog()
-    }
     stages {
         stage('Git Checkout') {
             steps {
