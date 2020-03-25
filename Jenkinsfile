@@ -11,6 +11,11 @@ pipeline {
                 )
             }
         }
+        stage('Orch Publish') {
+            steps {
+               orchPublish() 
+            }
+        }
         stage('Demo') {
             steps {
                 sayHello()
