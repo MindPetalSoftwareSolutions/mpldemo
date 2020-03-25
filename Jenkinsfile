@@ -24,7 +24,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat """
-                    C:/Program Files (x86)/UiPath/Studio/UiRobot.exe pack C:/Program Files (x86)/Jenkins/workspace/jlea-pipeline-test/project.json -o C:/Program Files (x86)/Jenkins/jobs/jlea-pipeline-test/builds/${env:BUILD_NUMBER}
+                    "C:\Program Files (x86)\UiPath\Studio\UiRobot.exe" pack "${env:WORKSPACE}\project.json" -o "{$env:JENKINS_HOME}\jobs\${env:JOB_NAME}\builds\${env:BUILD_NUMBER}"
                 """
             }
         }
