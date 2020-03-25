@@ -1,4 +1,4 @@
-@Library('jenkins-shared-library@master') _
+@Library('jenkins-shared-library@Justin-dev') _
 
 pipeline {
     agent any
@@ -7,7 +7,7 @@ pipeline {
             steps {
                 gitCheckout(
                     branch: "master",
-                    url: 'https://github.com/VerticalApps-DevOps/mpldemo.git'
+                    url: 'https://github.com/VerticalApps-DevOps/rpa-ex.git'
                 )
             }
         }
@@ -21,9 +21,14 @@ pipeline {
                 sayHello()
             }
         }
+        stage('Sonar') {
+            steps {
+                sonarQubeScan()
+            }
+        }
         stage('Build') {
             steps {
-                powershell returnStatus: true, script: '.\\build.ps1'
+                pack()
             }
         }
         stage('Powershell') {
