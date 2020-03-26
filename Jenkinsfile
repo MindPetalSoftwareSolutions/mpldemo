@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Orch Publish') {
             steps {
-               orchPublish() 
+                script {
+                    orchPublish() 
+                }
             }
         }
         stage('Demo') {
