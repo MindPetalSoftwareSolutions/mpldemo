@@ -6,14 +6,14 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 gitCheckout(
-                    branch: "master",
+                    branch: "quality-fail",
                     url: 'https://github.com/VerticalApps-DevOps/rpa-ex.git'
                 )
             }
         }
-        stage('Build') {
+        stage('Sonar') {
             steps {
-                pack()
+                sonarQubeScan()
             }
         }
     }
