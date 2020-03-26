@@ -11,9 +11,9 @@ pipeline {
                 )
             }
         }
-        stage('Sonar') {
+        stage('Build') {
             steps {
-                sonarQubeScan()
+                pack()
             }
         }
     }
