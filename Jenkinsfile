@@ -11,13 +11,6 @@ pipeline {
                 )
             }
         }
-        stage('Orch Publish') {
-            steps {
-                script {
-                    orchPublish() 
-                }
-            }
-        }
         stage('Demo') {
             steps {
                 sayHello()
@@ -28,19 +21,11 @@ pipeline {
                 sonarQubeScan()
             }
         }
-        stage('Build') {
+        stage('Orch Publish') {
             steps {
-                pack()
-            }
-        }
-        stage('Powershell') {
-            steps {
-                psLibrary()
-            }
-        }
-        stage('Orch Auth') {
-            steps{
-                orchAuth()
+                script {
+                    orchPublish() 
+                }
             }
         }
         stage('Post-Build') {
